@@ -12,7 +12,7 @@
     "url": "git+https://github.com/AadharT/mafia-webApp.git"
   },
   "engines" : {
-    "node" : "11.2.0"
+    "node" : "12.18.0"
   },
   "keywords": [
     "real",
@@ -24,7 +24,7 @@
   "author": "Aadhar Tyagi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AadharT/mafia-webApp/issues"
+    "url": "https://github.com/AahdharT/mafia-webApp/issues"
   },
   "homepage": "https://github.com/AadharT/mafia-webApp#readme",
   "dependencies": {
