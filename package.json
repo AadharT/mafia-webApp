@@ -4,15 +4,15 @@
   "description": "Real time multiplayer game",
   "main": "index.js",
   "scripts": {
-    "start" : "node server/server.js",
+    "start": "nodemon server/server.js",
     "test": "test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AadharT/mafia-webApp.git"
   },
-  "engines" : {
-    "node" : "12.18.0"
+  "engines": {
+    "node": "12.18.0"
   },
   "keywords": [
     "real",
@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/AadharT/mafia-webApp#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0"
   }
 }
