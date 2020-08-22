@@ -1,24 +1,30 @@
-const path = require("path");
-const express = require("express");
-const socketio = require("socket.io");
-const http = require("http");
+var express = require('express');
+var socket = require('socket.io');
 
-let app = express();
-let server = http.createServer(app);
-let io = socketio(server);
-
-const publicPath = path.join(__dirname, "../public");
-const port = process.env.PORT || 3000;
-app.use(express.static(publicPath));
-
-io.on("connection", (socket) => {
-  console.log("A user just connected");
-
-  socket.on("disconnect", () => {
-    console.log("A user just disconnected");
-  });
+// App setup
+var app = express();
+var server = app.listen(4000, function(){
+    console.log('listening for requests on port 4000,');
 });
 
-server.listen(port, () => {
-  console.log(`Server is running at port 3000`);
+// Static files
+app.use(express.static('public'));
+
+// Socket setup & pass server
+var io = socket(server);
+io.on('connection', (socket) => {
+
+    console.log('made socket connection', socket.id);
+
+    // Handle chat event
+    socket.on('chat', function(data){
+        // console.log(data);
+        io.sockets.emit('chat', data);
+    });
+
+    // Handle typing event
+    socket.on('typing', function(data){
+        socket.broadcast.emit('typing', data);
+    });
+
 });
